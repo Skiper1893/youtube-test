@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="youtybe-watch">
+<head>
+	<meta charset="UTF-8">
+	<title>Youtybe-Composition</title>
+
+	<script src="https://code.angularjs.org/1.5.6/angular.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.js"></script>
+	<script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+
+	<script src="angular_src/router.js"></script>
+	<script src="angular_src/youtybe_bootstrap.js"></script>
+	<!-- <script src="js/popup.js"></script> -->
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+	
+	<style>
+	li .active { color: red; font-weight: bold; };
+	li a {cursor: pointer};
+
+	</style>
+</head>
+
+<body ng-controller="YoutybeController">
+
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" ui-sref="main" ui-sref-active="active">Project name</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+    
+            <li><a ui-sref="main" ui-sref-active="active">Main</a></li>
+            <li><a ng-click="dialogCtrl()" href="">Create</a></li>
+            <li><a><md-button class="md-primary md-raised" ng-click="showPrompt($event)">Material</md-button></a></li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div><!-- /.navbar -->
+
+
+    <ui-view></ui-view>
+
+<div ng-show="ShowModal" ng-include="'view/modalContent.html'"></div>
+
+</body>
+</html>

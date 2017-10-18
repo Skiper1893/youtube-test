@@ -1,0 +1,17 @@
+{
+  "name": "angular1.5-test",
+  "version": "1.0.0",
+  "description": "Angular test application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Malbec",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "nodemon": "^1.12.1",
+    "path": "^0.12.7"
+  }
+}
