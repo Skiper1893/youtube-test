@@ -1,4 +1,4 @@
-app.controller('YoutybeController', function YoutybeController($scope, $http, $mdDialog){
+app.controller('YoutybeController', function YoutybeController($scope, $http, $mdDialog, $timeout){
 
 	//let vm = this;
 	$scope.ShowModal = true;
@@ -11,22 +11,42 @@ app.controller('YoutybeController', function YoutybeController($scope, $http, $m
  		description : ' '
 	};
 
-	$scope.category = ('music movie').split(' ').map(function(state) {
-        return  { abbrev: state };
-      });
+$scope.local = JSON.parse(localStorage.getItem('item'));
+//get default composition from local.json
+
+$http({method: 'GET', url: 'local.json'}).
+        then(function success(response) {
+         if($scope.local == null){
+          $scope.video_input = response.data;
+        } else {
+          console.log($scope.local);
+         $scope.video_input = $scope.local.concat(response.data);
+         console.log("else");
+       }
+  });
 
 //Get localStroge info about saved 
 
 		let SaveDataToLocalStorage = function(data) {
 
-		$scope.saved = window.localStorage.getItem('video');
-		$scope.check = (window.localStorage.getItem('video') !== null) ? JSON.parse($scope.saved) : [{"id": "lfEVLXu3NXs", "category" : "music"}];
-		window.localStorage.setItem('video', JSON.stringify($scope.check));
-		window.localStorage.setItem('video', JSON.stringify(data));
-		$scope.saved = window.localStorage.getItem('video');
-		console.log($scope.saved);
+    let a = [];
+    a.push(data);
+    saved = JSON.parse(localStorage.getItem('item'));
+    info = a.concat(saved);
+    info = info.filter(function(x) {
+    return x !== undefined && x !== null; 
+    });
+    console.log(info);
+    localStorage.setItem('item', JSON.stringify(info));
 	}
 
+
+$scope.select_category = function (video_input) {
+  return video_input.category = $scope.select;
+}
+
+
+/////-----Popup----/////
 	$scope.showAdvanced = function(ev) {
     $mdDialog.show({
       controller: DialogController,
@@ -37,18 +57,9 @@ app.controller('YoutybeController', function YoutybeController($scope, $http, $m
       fullscreen: $scope.customFullscreen 
     })
     .then(function(answer) {
-    	console.log(answer);
     	SaveDataToLocalStorage(answer);
 	});
   };
-
-
-//get default composition from local.json
-	$http({method: 'GET', url: 'local.json'}).
-				then(function success(response) {
-					$scope.video_info = response.data;
-	});
-
 
 function DialogController($scope, $mdDialog) {
     $scope.hide = function() {
@@ -64,8 +75,8 @@ function DialogController($scope, $mdDialog) {
     };
   }
 
-
-//Concatenate default video and video from localStorage
-_.concat($scope.video_info, this.SaveDataToLocalStorage);
+  $scope.category = ('music movie').split(' ').map(function(state) {
+        return  { abbrev: state };
+      });
 
 });

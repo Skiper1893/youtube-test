@@ -1,0 +1,22 @@
+{
+  "name": "angular1.5-test",
+  "description": "Angular test application",
+  "main": "index.js",
+  "authors": [
+    "Malbec"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Skiper1893/test",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.5",
+    "ng-lodash": "^0.5.0"
+  }
+}

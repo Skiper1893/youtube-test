@@ -7,14 +7,13 @@
 
           <md-input-container class="md-block" flex-gt-sm="">
             <label>URL</label>
-            <input name="postalCode" ng-model="new_video.id" required="">
+            <input name="postalCode" ng-model="new_video.id" required="" ng-pattern=" /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/">
 			
 			<div ng-messages="userForm.postalCode.$error" role="alert" multiple="">
               <div ng-message="required" class="my-message">You must supply url.</div>
-              <!-- <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                code.
+               <div ng-message="pattern" class="my-message">That doesn't look like a valid url.
               </div>
-              <div ng-message="md-maxlength" class="my-message">
+             <!-- <div ng-message="md-maxlength" class="my-message">
                 Don't use the long version silly...we don't need to be that specific...
               </div> -->
             </div> 

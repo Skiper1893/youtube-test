@@ -70,6 +70,26 @@ footer {
 .form_input {
    width: 540px !important;
 }
+
+#button_grp {
+  position: absolute;
+    top: 25vh;
+    left: 25vw;
+}
+
+#movie {
+    
+    height: 80px;
+    width: 140px;
+    background: rgba(244, 66, 92, 1);
+    transition: background 2s;
+    /*background: linear-gradient(45deg, red, blue);*/
+}
+#movie:focus {
+   transition: background 2s;
+   background: rgba(71, 216, 81, 0.7);
+   /*background: linear-gradient(135deg, orange, orange 60%, cyan);*/
+}
 /*#myModal {
     position: absolute;
     margin: 0px 25% 0px 0;
