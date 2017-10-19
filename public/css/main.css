@@ -56,4 +56,36 @@ footer {
     top: 0;
     width: 50%; /* 6 columns */
   }
+
+.form_input {
+    width: 240px !important;
+  }
+
 }
+
+.save_btn {
+      float: right;
+}
+
+.form_input {
+   width: 540px !important;
+}
+/*#myModal {
+    position: absolute;
+    margin: 0px 25% 0px 0;
+    right: 0;
+    width: 50%;
+    z-index: 200;
+}
+
+#overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: fixed;
+    cursor: default;
+}*/

@@ -1,4 +1,4 @@
 [
-		{"id": "lfEVLXu3NXs", "category" : "music"},
-		{"id": "KEI4qSrkPAs", "category" : "music"}
+		{"id": "lfEVLXu3NXs", "category" : "music" , "description" : "Great music" },
+		{"id": "KEI4qSrkPAs", "category" : "music" , "description" : "Great music" }
 ]

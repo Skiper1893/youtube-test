@@ -1,4 +1,4 @@
-var app = angular.module('youtybe-watch', ['ui.router', 'ui.bootstrap','ngMaterial', 'ngMessages']);
+var app = angular.module('youtybe-watch', ['ui.router', 'ui.bootstrap','ngMaterial']);
 
   app.config(function($stateProvider) {
   var mainState = {
